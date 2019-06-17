@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_17_182838) do
+ActiveRecord::Schema.define(version: 2019_06_17_191806) do
 
   create_table "hobbie_users", force: :cascade do |t|
     t.integer "user_id"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2019_06_17_182838) do
     t.integer "swiped_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "gave_chance"
   end
 
   create_table "users", force: :cascade do |t|

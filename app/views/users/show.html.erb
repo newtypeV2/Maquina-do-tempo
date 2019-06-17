@@ -12,10 +12,10 @@
 <% end %>
 </ul>
 <ul>
-<h3>Who Swipped you:</h3>
-<% @user.swipers.each do |swiper| %>
-<li><%= swiper.name %></li>
+<h3>Who said yes:</h3>
+<% @user.said_yes.each do |user| %>
+<li><%= user.name %></li>
 <% end %>
 </ul>
-
+<h2><%= link_to "EXPLORE",matchmaker_index_path %></h2>
 <h1><%= link_to "LOGOUT",logout_path, method: :delete%></h1>

@@ -12,18 +12,21 @@ stahl = User.find_or_create_by(name: "Stahl",location: "Washington, D.C.",age: 6
 khal = User.find_or_create_by(name: "Khal",location: "Washington, D.C.",age: 65, gender: "male")
 shae = User.find_or_create_by(name: "Shae",location: "Washington, D.C.",age: 68, gender: "female")
 
-Match.create(swiper_id: jon.id , swiped_id: shae.id)
-Match.create(swiper_id: jon.id, swiped_id: cersei.id)
-Match.create(swiper_id: jon.id, swiped_id: daenerys.id)
+Match.create(swiper_id: jon.id , swiped_id: shae.id, gave_chance: true)
+Match.create(swiper_id: jon.id, swiped_id: cersei.id, gave_chance: true)
+Match.create(swiper_id: jon.id, swiped_id: daenerys.id, gave_chance: true)
 
-Match.create(swiper_id: daenerys.id, swiped_id: khal.id)
-Match.create(swiper_id: daenerys.id, swiped_id: stahl.id)
+Match.create(swiper_id: daenerys.id, swiped_id: khal.id, gave_chance: true)
+Match.create(swiper_id: daenerys.id, swiped_id: stahl.id, gave_chance: false)
+Match.create(swiper_id: daenerys.id, swiped_id: jon.id, gave_chance: true)
 
-Match.create(swiper_id: stahl.id, swiped_id: jon.id)
-Match.create(swiper_id: stahl.id, swiped_id: khal.id)
+Match.create(swiper_id: cersei.id, swiped_id: jon.id, gave_chance: false)
 
-Match.create(swiper_id: khal.id, swiped_id: daenerys.id)
-Match.create(swiper_id: khal.id, swiped_id: cersei.id)
+Match.create(swiper_id: stahl.id, swiped_id: jon.id, gave_chance: true)
+Match.create(swiper_id: stahl.id, swiped_id: khal.id, gave_chance: true)
 
-Match.create(swiper_id: shae.id, swiped_id: jon.id) #for match testing
-Match.create(swiper_id: shae.id, swiped_id: khal.id)
+Match.create(swiper_id: khal.id, swiped_id: daenerys.id, gave_chance: true)
+Match.create(swiper_id: khal.id, swiped_id: cersei.id, gave_chance: false)
+
+Match.create(swiper_id: shae.id, swiped_id: jon.id, gave_chance: true) #for match testing
+Match.create(swiper_id: shae.id, swiped_id: khal.id, gave_chance: false)
