@@ -76,4 +76,8 @@ class User < ApplicationRecord
         return User.all-[self]-self.swiped
     end
 
+    def interested
+        return self.said_yes - self.matches
+    end
+
 end

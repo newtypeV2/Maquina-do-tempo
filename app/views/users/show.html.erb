@@ -6,16 +6,5 @@
     <h4>Gender: <%= @user.gender.capitalize %></h4>
 
 <ul>
-<h3>Matches:</h3>
-<% @user.matches.each do |match| %>
-<li><%= match.name  %></li>
-<% end %>
-</ul>
-<ul>
-<h3>Who said yes:</h3>
-<% @user.said_yes.each do |user| %>
-<li><%= user.name %></li>
-<% end %>
-</ul>
-<h2><%= link_to "EXPLORE",matchmaker_index_path %></h2>
-<h1><%= link_to "LOGOUT",logout_path, method: :delete%></h1>
+
+<h1><%= link_to "BACK TO HOME", homepage_path %></h1>
