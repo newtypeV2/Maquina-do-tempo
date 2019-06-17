@@ -1,8 +1,16 @@
-<ul>
+<div class="pool">
     <% @users.each do |user| %>
-    <li><%= user.name %> - <%= user.id %> ------ <%= current_user.name %> - <%= current_user.id %></li>
-    <%= link_to "YES", yes_path(user.id) %> /  <%= link_to "NO" , no_path(user.id) %>
+    <h3><%= user.name %></h3>
+    <% if user.avatar.attached? %>
+    <%= image_tag user.avatar,height: "250", width: "250" %>
+    <% else %>
+    <%= image_tag "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973461_960_720.png", height: "250", width: "250" %>
     <% end %>
-</ul>
+    <br>
+    <%= link_to "YES", yes_path(user.id) %> /  <%= link_to "NO" , no_path(user.id) %>
+    <br>
+    <br>
+    <% end %>
+</div>
 
 <h1><%= link_to "BACK TO HOMEPAGE",homepage_path %></h1>

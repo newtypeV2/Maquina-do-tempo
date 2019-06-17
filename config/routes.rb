@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   delete "logout", to: "sessions#destroy", as: "logout"
   get "homepage/:id", to: "matchmaker#clicked_yes", as: "yes"
   get "homepage/:id", to: "matchmaker#clicked_no", as: "no"
+  get "homepage/current_user/edit", to: "users#edit", as: "current_user_edit"
+  patch "homepage/current_user/edit", to: "users#update"
 end

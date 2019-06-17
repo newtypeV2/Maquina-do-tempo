@@ -1,0 +1,14 @@
+<%= form_for @user, :url => current_user_edit_path do |t| %>
+<h3>Picture:</h3>
+<%= t.file_field :avatar%>
+<h3>Name:</h3>
+<%= t.text_field :name %>
+<h3>Location:</h3>
+<%= t.text_field :location %>
+<h3>Age:</h3>
+<%= t.text_field :age %>
+<br>
+<br>
+<%= t.submit %>
+<% end  %>
+

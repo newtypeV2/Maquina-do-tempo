@@ -9,6 +9,7 @@ class User < ApplicationRecord
     has_many :swipers, through: :passive_relationships
     has_many :hobbie_users
     has_many :hobbies, through: :hobbie_users
+    has_one_attached :avatar
 
     # has_many :matches, :foreign_key => "swiper_id"
     # has_many :matches, :foreign_key => "swiped_id"
