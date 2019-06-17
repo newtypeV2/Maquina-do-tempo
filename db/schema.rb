@@ -10,13 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_17_155609) do
+ActiveRecord::Schema.define(version: 2019_06_17_191806) do
+
+  create_table "hobbie_users", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "hobby_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "hobbies", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "matches", force: :cascade do |t|
     t.integer "swiper_id"
     t.integer "swiped_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "gave_chance"
   end
 
   create_table "users", force: :cascade do |t|
