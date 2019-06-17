@@ -1,0 +1,21 @@
+<h1><%= @user.name %>'s Profile</h1>
+
+    <h4>Name: <%= @user.name %></h4>
+    <h4>Location: <%= @user.location %></h4>
+    <h4>Age: <%= @user.age %></h4>
+    <h4>Gender: <%= @user.gender.capitalize %></h4>
+
+<ul>
+<h3>Matches:</h3>
+<% @user.matches.each do |match| %>
+<li><%= match.name  %></li>
+<% end %>
+</ul>
+<ul>
+<h3>Who Swipped you:</h3>
+<% @user.swipers.each do |swiper| %>
+<li><%= swiper.name %></li>
+<% end %>
+</ul>
+
+<h1><%= link_to "LOGOUT",logout_path, method: :delete%></h1>
