@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  swiper_id: 1
+  swiped_id: 1
+
+two:
+  swiper_id: 1
+  swiped_id: 1
