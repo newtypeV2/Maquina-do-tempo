@@ -1,14 +1,15 @@
 <h1><%= @user.name %>'s Profile</h1>
-
+    <%= render partial: "shared/avatar", locals:{object: @user} %>
     <h4>Name: <%= @user.name %></h4>
     <h4>Location: <%= @user.location %></h4>
     <h4>Age: <%= @user.age %></h4>
     <h4>Gender: <%= @user.gender.capitalize %></h4>
 
 <ul>
+<h2><%= link_to "EDIT",current_user_edit_path  %> </h2>
 <h3>Matches:</h3>
 <% @user.matches.each do |match| %>
-<li><%= match.name  %></li>
+<li><%= link_to match.name,user_path(match)  %></li>
 <% end %>
 </ul>
 <ul>
