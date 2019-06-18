@@ -7,6 +7,16 @@ class User < ApplicationRecord
                                    dependent:   :destroy
     has_many :swiped, through: :active_relationships
     has_many :swipers, through: :passive_relationships
+
+    has_many :sender_relationships,  class_name:  "Message",
+                                   foreign_key: "sender_id",
+                                   dependent:   :destroy
+    has_many :receiver_relationships, class_name:  "Message",
+                                   foreign_key: "receiver_id",
+                                   dependent:   :destroy
+    has_many :receivers, through: :sender_relationships
+    has_many :senders, through: :passive_relationships         
+
     has_many :hobbie_users
     has_many :hobbies, through: :hobbie_users
     has_one_attached :avatar
@@ -80,5 +90,13 @@ class User < ApplicationRecord
     def interested
         return self.said_yes - self.matches
     end
+
+    # def sent_messages
+    #     self.sender_relationships
+    # end
+
+    # def received_messages
+    #     self.receiver_relationships
+    # end
 
 end

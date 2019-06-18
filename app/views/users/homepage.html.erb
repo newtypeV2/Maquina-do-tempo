@@ -9,7 +9,7 @@
       <% else %>
       <%= image_tag "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973461_960_720.png", height: "50", width: "50" %>
       <% end %>
-      <%= link_to "MESSAGES", "www.globo.com.br" %>
+      <%= link_to "MESSAGES", messages_path %>
       <%= link_to "INTERESTED", "www.g1.com.br" %>
       <%= link_to "EXPLORE",matchmaker_index_path %>
       <%= link_to "EDIT",current_user_edit_path  %>
@@ -27,7 +27,11 @@
   </div>
   <div class="footer">
     <div class="messages">
-
+      <h3>Messages:</h3>
+      <% @user.receiver_relationships.each do |message| %>
+      <h5>From: <%= message.sender.name %></h5>
+      <p><%= message.content %></p>
+      <% end %>
 
     </div>
     <div class="people_nearby">

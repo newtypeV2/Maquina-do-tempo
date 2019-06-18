@@ -30,3 +30,11 @@ Match.create(swiper_id: khal.id, swiped_id: cersei.id, gave_chance: false)
 
 Match.create(swiper_id: shae.id, swiped_id: jon.id, gave_chance: true) #for match testing
 Match.create(swiper_id: shae.id, swiped_id: khal.id, gave_chance: false)
+
+
+Message.create(sender_id: jon.id, receiver_id: shae.id, content: "How you doin?")
+Message.create(sender_id: shae.id, receiver_id: jon.id, content: "I'm doing fine. How was your watch last night?")
+Message.create(sender_id: jon.id, receiver_id: shae.id, content: "It was cool, we killed a lot of wight walkers. Other than that, it was normal")
+Message.create(sender_id: shae.id, receiver_id: jon.id, content: "Oh cool, when is the next time you're coming to Kings Landing? Maybe we can grabe some Starbucks")
+Message.create(sender_id: jon.id, receiver_id: shae.id, content: "Oh sure, we're planning a war against Cersei so we'll probably be there next week. See you then!")
+Message.create(sender_id: shae.id, receiver_id: jon.id, content: "Sounds great! See you then!")

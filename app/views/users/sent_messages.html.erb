@@ -1,0 +1,7 @@
+<h2><%= link_to "Messages",messages_path %></h2>
+<h1>SENT MESSAGES:</h1>
+<% @current_user.sender_relationships.each do |message| %>
+      <h5>To: <%= message.receiver.name %></h5>
+      <p><%= message.content %></p>
+      <% end %>
+    <h1><%= link_to "Back to homepage",homepage_path %></h1>
