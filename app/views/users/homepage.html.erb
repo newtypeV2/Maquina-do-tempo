@@ -1,7 +1,5 @@
 <h1><%= @user.name %>'s Profile</h1>
-    <% if @user.avatar.attached? %>
-    <%= image_tag @user.avatar,height: "250", width: "250" %>
-    <% end %>
+    <%= render partial: "shared/avatar", locals:{object: @user} %>
     <h4>Name: <%= @user.name %></h4>
     <h4>Location: <%= @user.location %></h4>
     <h4>Age: <%= @user.age %></h4>
