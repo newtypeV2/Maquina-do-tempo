@@ -1,15 +1,15 @@
 class SessionsController < ApplicationController
-    def new
+    def login
     end
 
     def create
-        @user = User.find_by(name: params[:name])
-        if @user
+        @user = User.find_by(username: params[:username])
+        if @user && @user.authenticate(params[:password])
             session[:id] = @user.id
             redirect_to homepage_path
         else
-            flash.notice = "USER NOT FOUND"
-            render :new
+            flash.notice = "No username/password combination found."
+            render :login
         end
     end
 

@@ -5,12 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-jon = User.find_or_create_by(name: "Jon",location: "Washington, D.C.",age: 72, gender: "male")
-daenerys = User.find_or_create_by(name: "Daenerys",location: "Washington, D.C.",age: 64, gender: "female")
-cersei = User.find_or_create_by(name: "Cersei",location: "Washington, D.C.",age: 70, gender: "female")
-stahl = User.find_or_create_by(name: "Stahl",location: "Washington, D.C.",age: 60, gender: "male")
-khal = User.find_or_create_by(name: "Khal",location: "Washington, D.C.",age: 65, gender: "male")
-shae = User.find_or_create_by(name: "Shae",location: "Washington, D.C.",age: 68, gender: "female")
+
+User.destroy_all
+Match.destroy_all
+
+
+jon = User.create(name: "Jon",location: "Washington, D.C.",age: 72, gender: "male", password: "password", username: "jon")
+daenerys = User.create(name: "Daenerys",location: "Washington, D.C.",age: 64, gender: "female")
+cersei = User.create(name: "Cersei",location: "Washington, D.C.",age: 70, gender: "female")
+stahl = User.create(name: "Stahl",location: "Washington, D.C.",age: 60, gender: "male")
+khal = User.create(name: "Khal",location: "Washington, D.C.",age: 65, gender: "male")
+shae = User.create(name: "Shae",location: "Washington, D.C.",age: 68, gender: "female")
 
 Match.create(swiper_id: jon.id , swiped_id: shae.id, gave_chance: true)
 Match.create(swiper_id: jon.id, swiped_id: cersei.id, gave_chance: true)
