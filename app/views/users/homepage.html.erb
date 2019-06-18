@@ -1,0 +1,21 @@
+<h1><%= @user.name %>'s Profile</h1>
+
+    <h4>Name: <%= @user.name %></h4>
+    <h4>Location: <%= @user.location %></h4>
+    <h4>Age: <%= @user.age %></h4>
+    <h4>Gender: <%= @user.gender.capitalize %></h4>
+
+<ul>
+<h3>Matches:</h3>
+<% @user.matches.each do |match| %>
+<li><%= match.name  %></li>
+<% end %>
+</ul>
+<ul>
+<h3>Who said yes:</h3>
+<% @user.interested.each do |user| %>
+<li><%= link_to user.name,user_path(user) %></li>
+<% end %>
+</ul>
+<h2><%= link_to "EXPLORE",matchmaker_index_path %></h2>
+<h1><%= link_to "LOGOUT",logout_path, method: :delete%></h1>
