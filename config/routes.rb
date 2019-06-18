@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   resources :users, only: :show
   resources :matchmaker, only: :index
   get "homepage", to: "users#homepage", as: "homepage"
-  get "login", to: "sessions#new", as: "login"
+  get "login", to: "sessions#login", as: "login"
+  get "signup", to: "users#new", as: "signup"
+  post "signup", to: "users#create"
   post "login", to: "sessions#create"
   delete "logout", to: "sessions#destroy", as: "logout"
   get "matchmaker/:id", to: "matchmaker#clicked_yes", as: "yes"

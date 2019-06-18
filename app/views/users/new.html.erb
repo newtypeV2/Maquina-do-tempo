@@ -1,6 +1,10 @@
-<%= form_for @user, :url => current_user_edit_path do |t| %>
+<h1>Sign up</h1>
+<%= form_for @user, :url => signup_path do |t| %>
+<h3>Username</h3>
+<%= t.text_field :username %>
+<h3>Password</h3>
+<%= t.password_field :password %>
 <h3>Picture:</h3>
-
 <%= t.file_field :avatar%>
 <h3>Name:</h3>
 <%= t.text_field :name %>
@@ -9,9 +13,6 @@
 <h3>Age:</h3>
 <%= t.text_field :age %>
 <br>
-<h3>Password</h3>
-<%= t.password_field :password %>
-
 <br>
 <br>
 <%= t.submit %>

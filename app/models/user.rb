@@ -21,6 +21,8 @@ class User < ApplicationRecord
     has_many :hobbies, through: :hobbie_users
     has_one_attached :avatar
 
+    has_secure_password
+
     # has_many :matches, :foreign_key => "swiper_id"
     # has_many :matches, :foreign_key => "swiped_id"
     # has_many :swiped, through: :matches
@@ -45,19 +47,19 @@ class User < ApplicationRecord
     end
 
     def match_accepted
-        match_select(self.active_relationships,true)      
+        match_select(self.active_relationships,true)
     end
 
     def match_rejected
-        match_select(self.active_relationships,false)      
+        match_select(self.active_relationships,false)
     end
 
     def match_said_yes
-        match_select(self.passive_relationships,true)      
+        match_select(self.passive_relationships,true)
     end
 
     def match_said_no
-        match_select(self.passive_relationships,false)      
+        match_select(self.passive_relationships,false)
     end
 
     def accepted
