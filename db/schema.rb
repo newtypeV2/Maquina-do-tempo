@@ -64,11 +64,11 @@ ActiveRecord::Schema.define(version: 2019_06_18_160005) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.string "location"
+    t.string "location", default: "Not Specified"
     t.integer "age"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "gender"
+    t.string "gender", default: "other"
     t.string "password_digest"
     t.string "username"
   end

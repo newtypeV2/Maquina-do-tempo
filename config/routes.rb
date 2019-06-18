@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   get "homepage/sent_messages", to: "users#sent_messages", as: "sent_messages"
   get "homepage/new_message", to: "users#new_message", as: "new_message"
   post "homepage/messages", to: "users#send_message", as: "send_message"
-  # post "homepage/messages", to: "users#send_message"
   
   resources :users, only: :show
   resources :matchmaker, only: :index

@@ -9,4 +9,12 @@ helper_method :current_user
             @current_user = User.find_by(id: session[:id])
         end
     end
+
+    def logged_in?
+        !!current_user
+    end
+
+    def authorized
+        return head(:forbidden) unless logged_in?
+    end
 end

@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+    before_action :authorized, except: [:login, :create]
+
     def login
     end
 

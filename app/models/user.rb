@@ -23,11 +23,11 @@ class User < ApplicationRecord
 
     has_secure_password
 
-    # has_many :matches, :foreign_key => "swiper_id"
-    # has_many :matches, :foreign_key => "swiped_id"
-    # has_many :swiped, through: :matches
-    # has_many :swiper, through: :matches
-
+    validates :name, presence: true
+    validates :password, presence: true
+    validates :age, presence: true
+    validates :username, presence: true, uniqueness: { case_sensitive: false }
+    
     def swiper_name_collect(array)
         array.collect do |match|
             match.swiper

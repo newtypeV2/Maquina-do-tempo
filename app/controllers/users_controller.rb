@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    before_action :authorized, except: [:new, :create]
 
     def homepage
         @user = current_user
@@ -9,7 +10,15 @@ class UsersController < ApplicationController
     end
 
     def create
-      byebug
+        @user = User.new(new_user_params)
+        if @user.valid?
+            @user.save
+            session[:id] = @user.id
+            redirect_to homepage_path
+        else
+            render :new
+        end
+
     end
 
     def show
@@ -53,8 +62,12 @@ class UsersController < ApplicationController
         params.require(:user).permit(:name, :location, :age, :avatar, :password, :username)
     end
 
+    def new_user_params
+        params.require(:user).permit(:name, :location, :age, :avatar, :password,:password_confirmation, :username)
+    end
+
     def edit_user_params
-        params.require(:user).permit(:name, :location, :age, :avatar, :password)
+        params.require(:user).permit(:name, :location, :age, :avatar, :password, :password_confirmation)
     end
 
     def message_params

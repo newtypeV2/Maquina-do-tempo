@@ -1,17 +1,22 @@
+<%= render partial: "shared/error_header", locals: {object: @user} %>
 <h1>Sign up</h1>
 <%= form_for @user, :url => signup_path do |t| %>
 <h3>Username</h3>
 <%= t.text_field :username %>
 <h3>Password</h3>
 <%= t.password_field :password %>
-<h3>Picture:</h3>
-<%= t.file_field :avatar%>
+<h3>Confirm Password:</h3>
+<%= t.password_field :password_confirmation %>
 <h3>Name:</h3>
 <%= t.text_field :name %>
 <h3>Location:</h3>
 <%= t.text_field :location %>
 <h3>Age:</h3>
 <%= t.text_field :age %>
+<h3>Gender:</h3>
+<%= t.select :gender, [ "male","female","other" ], :prompt => 'Select One' %>
+<h3>Picture:</h3>
+<%= t.file_field :avatar%>
 <br>
 <br>
 <br>

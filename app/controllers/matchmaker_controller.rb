@@ -1,4 +1,6 @@
 class MatchmakerController < ApplicationController
+    before_action :authorized
+
     def index
         @users = current_user.available_pool
     end
