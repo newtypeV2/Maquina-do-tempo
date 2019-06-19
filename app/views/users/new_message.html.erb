@@ -1,4 +1,4 @@
-<%= render partial: "shared/navbar",locals:{object:current_user} %>
+
 <h3>TO:</h3>
 <%= form_for @message, :url => send_message_path do |f| %>
 <%= f.collection_select(:receiver_id, @user.matches, :id, :name)  %>

@@ -1,22 +1,18 @@
-<%= render partial: "shared/navbar",locals:{object:@user} %>
+
   <h3>Matches:</h3>
   <div class="row">
-    <% @user.matches.each do |match| %>
-    <div class="col">
-    <div class="card" style="width: 16rem;">
-        <%= render partial: "shared/avatar", locals: {object: match} %>
-        <div class="card-body">
-        <h5 class="card-title"><li><%= link_to match.name,user_path(match)  %></li></h5>
-        </div>
-    </div>
-    </div>
+    <% current_user.matches.each do |match| %>
+      <div class="col">
+          <%= render partial: "shared/avatar", locals: {object: match}%>
+          <li><%= link_to match.name,user_path(match)  %></li>
+      </div>
     <% end %>
   </div>
   
   <div class="row">
       <div class="col">
       <h3>Messages:</h3>
-      <% @user.receiver_relationships.each do |message| %>
+      <% current_user.receiver_relationships.each do |message| %>
       <div class="col">
       <h5>From: <%= message.sender.name %></h5>
       <p><%= message.content %></p>

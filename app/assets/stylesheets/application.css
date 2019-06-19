@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+
+ nav{
+     position: fixed;
+     top: 0;
+     width: 100%;
+     overflow: hidden;  
+     z-index: 999;
+ }
+
+.container{
+     padding-top: 100px;
+ }

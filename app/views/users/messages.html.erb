@@ -1,4 +1,4 @@
-<%= render partial: "shared/navbar",locals:{object:current_user} %>
+
 <h2><%= link_to " Sent Messages",sent_messages_path %></h2>
 <h1>Received Messages:</h1>
 <% @current_user.receiver_relationships.each do |message| %>
