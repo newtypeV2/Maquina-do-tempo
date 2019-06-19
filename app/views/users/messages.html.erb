@@ -5,15 +5,23 @@
 <%= link_to "Compose Message", new_message_path %>
 </div>
 
-<% current_user.user_conversations.each do |sender| %>
+<% current_user.user_conversations.each do |person| %>
 <div class="message_window">
-<% if sender.avatar.attached? %>
-      <%= image_tag sender.avatar,height: "50", width: "50" %>
+      <% if person.avatar.attached? %>
+      <%= image_tag person.avatar,height: "50", width: "50" %>
       <% else %>
       <%= image_tag "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973461_960_720.png", height: "250", width: "250" %>
-      <% end %> <%= sender.name  %>
-<% current_user.get_conversation(sender).each do |message| %>
-<p class="message_content"> <span class="message_sender"><%= message.sender.name %>:</span> <%= message.content %> <span class="message_date"><%= message.created_at.strftime("at %I:%M%p") %></span></p>
-<% end %>
+      <% end %> <%= person.name  %>
+
+      <% current_user.get_conversation(person).each do |message| %>
+      <p class="message_content"> <span class="message_sender"><%= message.sender.name %>:</span> <%= message.content %> <span class="message_date"><%= message.created_at.strftime("at %I:%M%p") %></span></p>
+      <% end %>
+      <%= form_tag send_message_path do%>
+      <%= label_tag :message %>
+      <%= text_field_tag "message[content]" %>
+      <%= hidden_field_tag "message[sender_id]", current_user.id %>
+      <%= hidden_field_tag "message[receiver_id]", person.id %>
+      <%= submit_tag "Send" %>
+      <% end %>
 </div>
 <% end %>
