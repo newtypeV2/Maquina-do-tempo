@@ -33,7 +33,12 @@ class UsersController < ApplicationController
         current_user.update(edit_user_params)
         redirect_to homepage_path
     end
-
+#####################################################################################################
+    def destroy
+      current_user.destroy
+      redirect_to signup_path
+    end
+####################################################################################################
     def profile
     end
 

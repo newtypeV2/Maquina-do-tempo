@@ -11,10 +11,11 @@ Rails.application.routes.draw do
   post "signup", to: "users#create"
   post "login", to: "sessions#create"
   delete "logout", to: "sessions#destroy", as: "logout"
+  delete "homepage/delete", to: "users#destroy", as: "delete_account"
   get "matchmaker/:id", to: "matchmaker#clicked_yes", as: "yes"
   get "matchmaker/:id", to: "matchmaker#clicked_no", as: "no"
-  get "homepage/current_user/edit", to: "users#edit", as: "current_user_edit"
-  patch "homepage/current_user/edit", to: "users#update"
+  get "homepage/edit", to: "users#edit", as: "current_user_edit"
+  patch "homepage/edit", to: "users#update"
 
-  
+
 end
