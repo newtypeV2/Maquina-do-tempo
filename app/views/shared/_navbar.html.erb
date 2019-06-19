@@ -1,0 +1,17 @@
+<nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"> 
+            <%= link_to homepage_path do %>
+                <% if object.avatar.attached? %>
+                <%= image_tag object.avatar,height: "50", width: "50" %>
+                <% else %>
+                <%= image_tag "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973461_960_720.png", height: "50", width: "50"%>
+                <% end %>
+            <% end %>
+          </li>
+          <li class="breadcrumb-item"><%= link_to "MESSAGES", messages_path %></li>
+          <li class="breadcrumb-item"><%= link_to "EXPLORE",matchmaker_index_path %></li>
+          <li class="breadcrumb-item"><%= link_to "EDIT",current_user_edit_path  %></li>
+          <li class="breadcrumb-item"><%= link_to "LOGOUT",logout_path, method: :delete%></li>
+        </ol>
+      </nav>

@@ -1,12 +1,11 @@
-<div class="pool">
-    <% @users.each do |user| %>
-    <h3><%= user.name %></h3>
-    <%= render partial: "shared/avatar", locals:{object: user} %>
-    <br>
-    <%= link_to "YES", yes_path(user.id) %> /  <%= link_to "NO" , no_path(user.id) %>
-    <br>
-    <br>
-    <% end %>
+<%= render partial: "shared/navbar",locals:{object:current_user} %>
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <% @users.each do |user| %>
+        <h3><%= user.name %></h3>
+        <%= render partial: "shared/avatar", locals:{object: user} %>
+        <br>
+        <br>
+        <%= link_to "YES", yes_path(user.id) %> /  <%= link_to "NO" , no_path(user.id) %>
+        <% end %>
 </div>
-
-<h1><%= link_to "BACK TO HOMEPAGE",homepage_path %></h1>
+<h1 class="display-1"><%= link_to "BACK TO HOMEPAGE",homepage_path %></h1>

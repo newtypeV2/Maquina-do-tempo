@@ -1,20 +1,20 @@
+<%= render partial: "shared/navbar",locals:{object:current_user} %>
+<h1 class="display-1">Edit Information</h1>
+<%= render partial: "shared/error_header", locals: {object: @user} %>
+
 <%= form_for @user, :url => current_user_edit_path do |t| %>
-<h3>Picture:</h3>
-
-<%= t.file_field :avatar%>
-<h3>Name:</h3>
-<%= t.text_field :name %>
-<h3>Location:</h3>
-<%= t.text_field :location %>
-<h3>Age:</h3>
-<%= t.text_field :age %>
-<br>
-<h3>Password</h3>
-<%= t.password_field :password %>
-<h3>Confirm Password</h3>
-<%= t.password_field :password_confirmation %>
-
-<br>
-<br>
-<%= t.submit %>
+    <p><%= t.label :avatar %></p>
+    <p><%= t.file_field :avatar%></p>
+    <p><%= t.label :name %></p>
+    <p><%= t.text_field :name %></p>
+    <p><%= t.label :location %></p>
+    <p><%= t.text_field :location %></p>
+    <p><%= t.label :age %></p>
+    <p><%= t.text_field :age %></p>
+    <p></p>
+    <p><%= t.label :password %></p>
+    <p><%= t.password_field :password %></p>
+    <p><%= t.label :password_confirmation %></p>
+    <p><%= t.password_field :password_confirmation %></p>
+<p><%= t.submit %></p>
 <% end  %>
