@@ -26,3 +26,28 @@ span.message_date{
 span.message_sender{
     font-size: 150%;
 }
+
+p.no_match {
+    font-size: 300%;
+    text-align: -webkit-center;
+}
+
+div.row.no_match {
+    margin: auto;
+    width: fit-content;
+    padding: 10px;
+}
+
+p.edit_warn{
+    font-size: 120%;
+    text-align: center;
+}
+
+textarea#message_content {
+    width: 100%;
+    height: 300px;
+}
+
+input#message_content {
+    width: 70%;
+}

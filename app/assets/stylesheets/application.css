@@ -13,17 +13,19 @@
  *= require_tree .
  *= require_self
  */
+ 
 
-
- nav{
+ div.navigation{
      position: fixed;
      top: 0;
      width: 100%;
-     overflow: hidden;  
      z-index: 999;
  }
+
+ ul.nav.justify-content-center.nav {
+    padding: 5px;
+}
 
 .container{
      margin-top: 100px;
  }
-

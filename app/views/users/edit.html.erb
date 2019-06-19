@@ -1,7 +1,5 @@
-
-<h1 class="display-1">Edit Information</h1>
 <%= render partial: "shared/error_header", locals: {object: @user} %>
-
+<h1 class="display-1">Edit Information</h1>
 <%= form_for @user, :url => current_user_edit_path do |t| %>
     <p><%= t.label :avatar %></p>
     <p><%= t.file_field :avatar%></p>
@@ -11,7 +9,9 @@
     <p><%= t.text_field :location %></p>
     <p><%= t.label :age %></p>
     <p><%= t.text_field :age %></p>
-    <p></p>
+    <div class="alert alert-warning" role="alert">
+    <p class="edit_warn">PLEASE ENTER PASSWORD TO CONFIRM CHANGES:</p>
+    </div>
     <p><%= t.label :password %></p>
     <p><%= t.password_field :password %></p>
     <p><%= t.label :password_confirmation %></p>

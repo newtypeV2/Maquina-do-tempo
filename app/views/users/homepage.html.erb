@@ -1,15 +1,21 @@
-
+<% if current_user.matches.any? %>
   <h3>Matches:</h3>
   <div class="row">
-    <% current_user.matches.each do |match| %>
-      <div class="col">
-          <div class="card" style="width: 15.5rem;">
-              <%= render partial: "shared/avatar", locals: {object: match}%>
-              <div class="card-body">
-                <h5 class="card-title"><%= link_to match.name,user_path(match)  %></h5>
-                <p class="card-text"><%= match.location %></p>
+      <% current_user.matches.each do |match| %>
+            <div class="col-sm-4">
+            <div class="card" style="width: 255px;">
+                <%= render partial: "shared/avatar", locals: {object: match}%>
+                <div class="card-body">
+                  <h5 class="card-title"><%= link_to match.name,user_path(match)  %></h5>
+                  <p class="card-text"><%= match.location %></p>
               </div>
             </div>
-        </div>
-    <% end %>
+            </div>
+      <% end %>
+    </div>
+    <% else %>
+  
+  <div class="row no_match">
+    <p class="no_match"> NOBODY LIKED YOU YET! <%= link_to "EXPLORE!",matchmaker_index_path %></p>
   </div>
+<% end %>

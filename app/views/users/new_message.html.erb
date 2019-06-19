@@ -1,8 +1,8 @@
 
 <h3>To:</h3>
 <%= form_for @message, :url => messages_path do |f| %>
-<%= f.collection_select(:receiver_id, @user.matches, :id, :name) %>
+<p><%= f.collection_select(:receiver_id, @user.matches, :id, :name) %></p>
 <%= f.text_area :content %>
 <%= hidden_field_tag "message[sender_id]", @user.id  %>
-<%= f.submit "Send" %>
+<p><%= f.submit "Send" %></p>
 <% end %>

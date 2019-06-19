@@ -1,4 +1,4 @@
-
+<%= render partial: "shared/error_header", locals: {object: @user} %>
 <h1 class="display-1">Sign up</h1>
 <p><small>Have an account?<%= link_to " Login!", login_path %></small></p>
 <%= form_for @user, :url => signup_path do |t| %>

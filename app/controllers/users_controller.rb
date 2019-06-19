@@ -30,15 +30,19 @@ class UsersController < ApplicationController
     end
 
     def update
-        current_user.update(edit_user_params)
+        @user = current_user
+        if @user.update(edit_user_params)
         redirect_to homepage_path
+        else
+            render :edit
+        end
     end
-#####################################################################################################
+
     def destroy
       current_user.destroy
       redirect_to signup_path
     end
-####################################################################################################
+
     def profile
     end
 
