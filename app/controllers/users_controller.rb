@@ -52,7 +52,7 @@ class UsersController < ApplicationController
 
     def send_message
        Message.create(message_params)
-       redirect_to sent_messages_path
+       redirect_to messages_path
     end
 
 

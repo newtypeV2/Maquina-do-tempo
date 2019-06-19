@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get "homepage/messages", to: "users#messages", as: "messages"
-  get "homepage/sentmessages", to: "users#sent_messages", as: "sent_messages"
   get "homepage/new_message", to: "users#new_message", as: "new_message"
   post "homepage/messages", to: "users#send_message", as: "send_message"
   resources :users, only: :show

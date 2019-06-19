@@ -3,9 +3,14 @@
   <div class="row">
     <% current_user.matches.each do |match| %>
       <div class="col">
-          <%= render partial: "shared/avatar", locals: {object: match}%>
-          <li><%= link_to match.name,user_path(match)  %></li>
-      </div>
+          <div class="card" style="width: 15.5rem;">
+              <%= render partial: "shared/avatar", locals: {object: match}%>
+              <div class="card-body">
+                <h5 class="card-title"><%= link_to match.name,user_path(match)  %></h5>
+                <p class="card-text"><%= match.location %></p>
+              </div>
+            </div>
+        </div>
     <% end %>
   </div>
   

@@ -7,18 +7,22 @@
 // box-shadow: 5px 5px 5px 0px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
 // }
 
-// div{
-//     border: 2px solid black;
-//     padding: 5px;
-//     margin: 10px;
-// }
-
-#ul_top_hypers li {
-    display: inline;
-    padding: 10px;
+div.message_nav{
+    overflow: hidden;
+    width: 100%;
 }
 
-// #matches li {
-//     display: inline;
-//     padding: 20px;
-// }
+div.message_window{
+    border: 2px solid black; 
+    padding: 10px; 
+    margin: 30px;
+    background-color: ghostwhite;
+}
+
+span.message_date{
+    font-size: 50%;
+}
+
+span.message_sender{
+    font-size: 150%;
+}

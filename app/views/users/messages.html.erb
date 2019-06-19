@@ -1,9 +1,19 @@
 
-<h2><%= link_to " Sent Messages",sent_messages_path %></h2>
-<h1>Received Messages:</h1>
-<% @current_user.receiver_relationships.each do |message| %>
-      <h5>From: <%= message.sender.name %></h5>
-      <p><%= message.content %></p>
-      <% end %>
-<h1><%= link_to "NEW MESSAGE", new_message_path %></h1>
-<h1><%= link_to "Back to homepage",homepage_path %></h1>
+<h1 class="display-3">Messages:</h1>
+
+<div class="message_nav">
+<%= link_to "Compose Message", new_message_path %>
+</div>
+
+<% current_user.user_conversations.each do |sender| %>
+<div class="message_window">
+<% if sender.avatar.attached? %>
+      <%= image_tag sender.avatar,height: "50", width: "50" %>
+      <% else %>
+      <%= image_tag "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973461_960_720.png", height: "250", width: "250" %>
+      <% end %> <%= sender.name  %>
+<% current_user.get_conversation(sender).each do |message| %>
+<p class="message_content"> <span class="message_sender"><%= message.sender.name %>:</span> <%= message.content %> <span class="message_date"><%= message.created_at.strftime("at %I:%M%p") %></span></p>
+<% end %>
+</div>
+<% end %>

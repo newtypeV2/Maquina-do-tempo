@@ -15,7 +15,7 @@ class User < ApplicationRecord
                                    foreign_key: "receiver_id",
                                    dependent:   :destroy
     has_many :receivers, through: :sender_relationships
-    has_many :senders, through: :passive_relationships         
+    has_many :senders, through: :receiver_relationships         
 
     has_many :hobbie_users
     has_many :hobbies, through: :hobbie_users
@@ -93,12 +93,33 @@ class User < ApplicationRecord
         return self.said_yes - self.matches
     end
 
-    # def sent_messages
-    #     self.sender_relationships
-    # end
+    def unique_senders
+        return self.senders.uniq
+    end
 
-    # def received_messages
-    #     self.receiver_relationships
-    # end
+    def unique_receivers
+        return self.receivers.uniq
+    end
+
+    def user_conversations
+        return (self.unique_senders + self.unique_receivers).uniq
+    end
+
+    def get_messages_from(sender)
+        return self.receiver_relationships.select do |message|
+            message.sender == sender
+        end
+    end
+
+    def get_sent_messages(receiver)
+        return self.sender_relationships.select do |message|
+            message.receiver == receiver
+        end
+    end
+
+    def get_conversation(person)
+        return (self.get_messages_from(person) + self.get_sent_messages(person)).sort
+    end
+
 
 end
