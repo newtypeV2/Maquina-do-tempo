@@ -20,5 +20,5 @@
 <% end  %>
 
 <%= form_tag delete_account_path, method: "DELETE" do %>
-  <%= submit_tag "Delete my account" %>
+  <%= submit_tag "Delete my account", data: { confirm: "Are you sure?" } %>
 <% end %>
