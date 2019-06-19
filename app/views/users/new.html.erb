@@ -1,5 +1,6 @@
 
 <h1 class="display-1">Sign up</h1>
+<p><small>Have an account?<%= link_to " Login!", login_path %></small></p>
 <%= form_for @user, :url => signup_path do |t| %>
     <p><%= t.label :username %></p>
     <p><%= t.text_field :username %></p>
