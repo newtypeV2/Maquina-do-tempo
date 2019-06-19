@@ -1,11 +1,16 @@
+<div class="row">
+        
 
-<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-        <% @users.each do |user| %>
-        <h3><%= user.name %></h3>
-        <%= render partial: "shared/avatar", locals:{object: user} %>
-        <br>
-        <br>
-        <%= link_to "YES", yes_path(user.id) %> /  <%= link_to "NO" , no_path(user.id) %>
-        <% end %>
+
+<% @users.each do |user| %>
+        <div class="col-sm-4">
+        <div class="card" style="width: 16rem;">
+                <%= render partial: "shared/avatar", locals:{object: user} %>
+                <div class="card-body">
+                <h5 class="card-title"><%= user.name %></h5>
+                <p class="card-text"><%= link_to "YES", yes_path(user.id) %> /  <%= link_to "NO" , no_path(user.id) %></p>
+                </div>
+        </div>
+        </div>
+<% end %>
 </div>
-<h1 class="display-1"><%= link_to "BACK TO HOMEPAGE",homepage_path %></h1>
