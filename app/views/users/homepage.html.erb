@@ -1,21 +1,39 @@
-<% if current_user.matches.any? %>
-  <h3>Matches:</h3>
-  <div class="row">
+<div class="row">
+  <% if current_user.interested.any? %>
+  <div class="row-sm-2 border border-dark shadow p-3 mb-5 bg-light rounded mr-2">
+    <p>People Interested in you:</p>
+    <div class="row px-2">
+    <% current_user.interested.each do |match| %>
+    <div class="custom_card">
+    <%= render partial: "shared/avatar-resize", locals: {object: match,x:90,y:90}%>
+    </div>
+    <% end %>
+    </div>
+  </div>
+  <% end %>
+
+    <div class="col-sm-10 border border-dark shadow p-3 mb-5 bg-light rounded position-relative">
+    <% if current_user.matches.any? %>
+    <h3>Matches:</h3>
+      <div class="row">
       <% current_user.matches.each do |match| %>
-            <div class="col-sm-4">
-            <div class="card" style="width: 255px;">
-                <%= render partial: "shared/avatar", locals: {object: match}%>
+              <div class="col-sm-4">
+                <div class="card" style="width: 255px;">
+                  <%= render partial: "shared/avatar-resize", locals: {object: match,x:250,y:250}%>
                 <div class="card-body">
-                  <h5 class="card-title"><%= link_to match.name,user_path(match)  %></h5>
-                  <p class="card-text"><%= match.location %></p>
+                    <h5 class="card-title"><%= link_to match.name,user_path(match)  %></h5>
+                    <p class="card-text"><%= match.location %></p>
+                </div>
               </div>
             </div>
-            </div>
       <% end %>
+      </div>
     </div>
+
     <% else %>
   
   <div class="row no_match">
     <p class="no_match"> NOBODY LIKED YOU YET! <%= link_to "EXPLORE!",matchmaker_index_path %></p>
   </div>
-<% end %>
+  <% end %>
+  </div>

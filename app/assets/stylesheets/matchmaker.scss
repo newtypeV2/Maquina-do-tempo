@@ -5,3 +5,12 @@ div.card{
     margin: 15px;
     padding: 2px;
 }
+
+ul.filter_commands{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333333;
+    display: inline-flex;
+}

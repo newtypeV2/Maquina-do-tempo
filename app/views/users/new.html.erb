@@ -1,23 +1,29 @@
-<%= render partial: "shared/error_header", locals: {object: @user} %>
-<h1 class="display-1">Sign up</h1>
-<p><small>Have an account?<%= link_to " Login!", login_path %></small></p>
-<%= form_for @user, :url => signup_path do |t| %>
-    <p><%= t.label :username %></p>
-    <p><%= t.text_field :username %></p>
-    <p><%= t.label :password %></p>
-    <p><%= t.password_field :password %></p>
-    <p><%= t.label :password_confirmation %></p>
-    <p><%= t.password_field :password_confirmation %></p>
-    <p><%= t.label :name %></p>
-    <p><%= t.text_field :name %></p>
-    <p><%= t.label :location %></p>
-    <p><%= t.text_field :location %></p>
-    <p><%= t.label :age %></p>
-    <p><%= t.text_field :age %></p>
-    <p><%= t.label :gender %></p>
-    <p><%= t.select :gender, [ "male","female","other" ], :prompt => 'Select One' %></p>
-    <p><%= t.label :avatar %></p>
-    <p><%= t.file_field :avatar%></p>
-    <br>
-    <p><%= t.submit %></p>
-<% end  %>
+<div class="row">
+    <div class="col-4">
+        <div class="shadow-lg p-3 mb-5 bg-light rounded">
+        <%= render partial: "shared/error_header", locals: {object: @user} %>
+        <h1 class="display-1">Sign up</h1>
+        <p><small>Have an account?<%= link_to " Login!", login_path %></small></p>
+        <%= form_for @user, :url => signup_path do |t| %>
+            <p><%= t.label :username %></p>
+            <p><%= t.text_field :username %></p>
+            <p><%= t.label :password %></p>
+            <p><%= t.password_field :password %></p>
+            <p><%= t.label :password_confirmation %></p>
+            <p><%= t.password_field :password_confirmation %></p>
+            <p><%= t.label :name %></p>
+            <p><%= t.text_field :name %></p>
+            <p><%= t.label :location %></p>
+            <p><%= t.text_field :location %></p>
+            <p><%= t.label :age %></p>
+            <p><%= t.text_field :age %></p>
+            <p><%= t.label :gender %></p>
+            <p><%= t.select :gender, [ "male","female","other" ], :prompt => 'Select One' %></p>
+            <p><%= t.label :avatar %></p>
+            <p><%= t.file_field :avatar%></p>
+            <br>
+            <p><%= t.submit %></p>
+        <% end  %>
+        </div>
+    </div>
+</div>

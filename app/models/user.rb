@@ -78,7 +78,6 @@ class User < ApplicationRecord
         self.swiper_name_collect(self.match_said_no)
     end
 
-
     def matches
         self.accepted.select do |user|
             self.said_yes.include?(user)
@@ -87,6 +86,12 @@ class User < ApplicationRecord
 
     def available_pool
         return User.all-[self]-self.swiped
+    end
+
+    def filter_available_pool_by_gender(gender)
+        return available_pool.select do |user|
+            user.gender == gender
+        end
     end
 
     def interested

@@ -1,11 +1,7 @@
 <div class="navigation">
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: lightgray;" >
     <%= link_to homepage_path, class:"navbar-brand" do %>
-    <% if object.avatar.attached? %>
-    <%= image_tag object.avatar,height: "50", width: "50"  %>
-    <% else %>
-    <%= image_tag "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973461_960_720.png", height: "50", width: "50"%>
-    <% end %>
+    <%= render partial: "shared/avatar-resize", locals: {object: current_user,x:50,y:50} %>
     <% end %>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>

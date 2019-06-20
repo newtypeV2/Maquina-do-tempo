@@ -1,24 +1,29 @@
-<%= render partial: "shared/error_header", locals: {object: @user} %>
-<h1 class="display-1">Edit Information</h1>
-<%= form_for @user, :url => current_user_edit_path do |t| %>
-    <p><%= t.label :avatar %></p>
-    <p><%= t.file_field :avatar%></p>
-    <p><%= t.label :name %></p>
-    <p><%= t.text_field :name %></p>
-    <p><%= t.label :location %></p>
-    <p><%= t.text_field :location %></p>
-    <p><%= t.label :age %></p>
-    <p><%= t.text_field :age %></p>
-    <div class="alert alert-warning" role="alert">
-    <p class="edit_warn">PLEASE ENTER PASSWORD TO CONFIRM CHANGES:</p>
-    </div>
-    <p><%= t.label :password %></p>
-    <p><%= t.password_field :password %></p>
-    <p><%= t.label :password_confirmation %></p>
-    <p><%= t.password_field :password_confirmation %></p>
-<p><%= t.submit %></p>
-<% end  %>
+<div class="row">
+    <div class="col-6">
+        <div class="shadow-lg p-3 mb-5 bg-light rounded"> <%= render partial: "shared/error_header", locals: {object: @user} %>
+          <h1 class="display-3">Edit Information</h1>
+          <%= form_for @user, :url => current_user_edit_path do |t| %>
+              <p><%= t.label :avatar %></p>
+              <p><%= t.file_field :avatar%></p>
+              <p><%= t.label :name %></p>
+              <p><%= t.text_field :name %></p>
+              <p><%= t.label :location %></p>
+              <p><%= t.text_field :location %></p>
+              <p><%= t.label :age %></p>
+              <p><%= t.text_field :age %></p>
+              <div class="alert alert-warning" role="alert">
+              <p class="edit_warn">PLEASE ENTER PASSWORD TO CONFIRM CHANGES:</p>
+              </div>
+              <p><%= t.label :password %></p>
+              <p><%= t.password_field :password %></p>
+              <p><%= t.label :password_confirmation %></p>
+              <p><%= t.password_field :password_confirmation %></p>
+          <p><%= t.submit %></p>
+          <% end  %>
 
-<%= form_tag delete_account_path, method: "DELETE" do %>
-  <%= submit_tag "Delete my account", data: { confirm: "Are you sure?" } %>
-<% end %>
+          <%= form_tag delete_account_path, method: "DELETE" do %>
+            <%= submit_tag "Delete my account", data: { confirm: "Are you sure?" } %>
+          <% end %>
+    </div>
+  </div>
+</div>

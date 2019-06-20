@@ -13,7 +13,9 @@
 
   <body>
       <% if logged_in? %>
-      <%= render partial: "shared/navbar",locals:{object:current_user} %>
+      <%= render partial: "shared/navbar", locals:{object: current_user} %>
+      <% else %>
+      <%= render "shared/public_navbar" %>
       <% end %>
     <div class="container">
     <%= yield %>

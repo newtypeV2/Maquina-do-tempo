@@ -1,10 +1,12 @@
+<div class="d-flex justify-content-center">
+        <%= form_tag matchmaker_index_path, method: :get %>
+        <%= select_tag "filter", options_for_select([  "Male","Female","Other","All"  ]), :prompt => 'Select One' %>
+        <%= submit_tag "Filter" %>
+</div>
 <div class="row">
-        
-
-
 <% @users.each do |user| %>
         <div class="col-sm-4">
-        <div class="card" style="width: 16rem;">
+        <div class="card shadow-lg bg-light rounded" style="width: 16rem;">
                 <%= render partial: "shared/avatar", locals:{object: user} %>
                 <div class="card-body">
                 <h5 class="card-title"><%= link_to user.name, user_path(user) %></h5>
