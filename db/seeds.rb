@@ -11,11 +11,22 @@ Match.destroy_all
 
 
 jon = User.create(name: "Jon",location: "Washington, D.C.",age: 72, gender: "male", password: "password", username: "jon")
+jon.avatar.attach(io: File.open("profilepics/jon.jpg"), filename: "jon.jpg", content_type: "image/jpg")
+
 daenerys = User.create(name: "Daenerys",location: "Washington, D.C.",age: 64, gender: "female", password: "password", username: "nerys")
+daenerys.avatar.attach(io: File.open("profilepics/daenerys.jpg"), filename: "daenerys.jpg", content_type: "image/jpg")
+
 cersei = User.create(name: "Cersei",location: "Washington, D.C.",age: 70, gender: "female", password: "password", username: "cersei")
+cersei.avatar.attach(io: File.open("profilepics/cersei.jpg"), filename: "cersei.jpg", content_type: "image/jpg")
+
 stahl = User.create(name: "Stahl",location: "Washington, D.C.",age: 60, gender: "male", password: "password", username: "stahl")
+stahl.avatar.attach(io: File.open("profilepics/stahl.jpg"), filename: "stahl.jpg", content_type: "image/jpg")
+
 khal = User.create(name: "Khal",location: "Washington, D.C.",age: 65, gender: "male", password: "password", username: "khal")
+khal.avatar.attach(io: File.open("profilepics/khal.jpg"), filename: "khal.jpg", content_type: "image/jpg")
+
 shae = User.create(name: "Shae",location: "Washington, D.C.",age: 68, gender: "female", password: "password", username: "shae")
+shae.avatar.attach(io: File.open("profilepics/shae.jpg"), filename: "shae.jpg", content_type: "image/jpg")
 
 Match.create(swiper_id: jon.id , swiped_id: shae.id, gave_chance: true)
 Match.create(swiper_id: jon.id, swiped_id: cersei.id, gave_chance: true)

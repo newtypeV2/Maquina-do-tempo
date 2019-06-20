@@ -2,6 +2,9 @@ class SessionsController < ApplicationController
     before_action :authorized, except: [:login, :create]
 
     def login
+        if logged_in?
+            redirect_to homepage_path
+        end
     end
 
     def create
