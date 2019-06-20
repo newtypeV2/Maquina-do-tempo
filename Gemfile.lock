@@ -1,3 +1,16 @@
+GIT
+  remote: https://github.com/stympy/faker.git
+  revision: b913e7cba609b42c74f7968840270c74a1cbbd0b
+  branch: master
+  specs:
+    faker (1.9.4)
+      i18n (>= 0.7)
+      pastel (~> 0.7.2)
+      thor (~> 0.20.0)
+      tty-pager (~> 0.12.0)
+      tty-screen (~> 0.6.5)
+      tty-tree (~> 0.3.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -75,6 +88,7 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.5)
     crass (1.0.4)
+    equatable (0.6.0)
     erubi (1.8.0)
     execjs (2.7.0)
     ffi (1.11.1)
@@ -106,6 +120,9 @@ GEM
     nio4r (2.3.1)
     nokogiri (1.10.3)
       mini_portile2 (~> 2.4.0)
+    pastel (0.7.3)
+      equatable (~> 0.6)
+      tty-color (~> 0.5)
     public_suffix (3.1.0)
     puma (3.12.1)
     rack (2.0.7)
@@ -169,9 +186,22 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     sqlite3 (1.4.1)
+    strings (0.1.5)
+      strings-ansi (~> 0.1)
+      unicode-display_width (~> 1.5)
+      unicode_utils (~> 1.4)
+    strings-ansi (0.1.0)
     thor (0.20.3)
     thread_safe (0.3.6)
     tilt (2.0.9)
+    tty-color (0.5.0)
+    tty-pager (0.12.1)
+      strings (~> 0.1.4)
+      tty-screen (~> 0.6)
+      tty-which (~> 0.4)
+    tty-screen (0.6.5)
+    tty-tree (0.3.0)
+    tty-which (0.4.1)
     turbolinks (5.2.0)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
@@ -179,6 +209,8 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.1.20)
       execjs (>= 0.3.0, < 3)
+    unicode-display_width (1.6.0)
+    unicode_utils (1.4.0)
     web-console (3.7.0)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -200,6 +232,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   chromedriver-helper
   coffee-rails (~> 4.2)
+  faker!
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   mini_magick (~> 4.8)

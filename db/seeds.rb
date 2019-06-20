@@ -28,6 +28,21 @@ khal.avatar.attach(io: File.open("profilepics/khal.jpg"), filename: "khal.jpg", 
 shae = User.create(name: "Shae",location: "Washington, D.C.",age: 68, gender: "female", password: "password", username: "shae")
 shae.avatar.attach(io: File.open("profilepics/shae.jpg"), filename: "shae.jpg", content_type: "image/jpg")
 
+x = 1
+6.times do
+    user = User.create(name: Faker::Name.male_first_name ,location: "#{Faker::Address.city }, #{Faker::Address.state_abbr}" ,age:rand(60..70) , gender: "male", password: "password", username: ("user-m"+"#{x}"))
+    user.avatar.attach(io: File.open("profilepics/man#{x}.jpg"), filename: "man#{x}.jpg", content_type: "image/jpg")
+    x+=1
+end
+
+x = 1
+6.times do
+    user = User.create(name: Faker::Name.female_first_name ,location: "#{Faker::Address.city }, #{Faker::Address.state_abbr}" ,age:rand(60..70) , gender: "female", password: "password", username: ("user-f"+"#{x}"))
+    user.avatar.attach(io: File.open("profilepics/woman#{x}.jpg"), filename: "woman#{x}.jpg", content_type: "image/jpg")
+    x+=1
+end
+
+
 Match.create(swiper_id: jon.id , swiped_id: shae.id, gave_chance: true)
 Match.create(swiper_id: jon.id, swiped_id: cersei.id, gave_chance: true)
 Match.create(swiper_id: jon.id, swiped_id: daenerys.id, gave_chance: true)

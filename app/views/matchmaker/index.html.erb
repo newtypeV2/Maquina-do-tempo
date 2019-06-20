@@ -7,7 +7,7 @@
         <div class="card" style="width: 16rem;">
                 <%= render partial: "shared/avatar", locals:{object: user} %>
                 <div class="card-body">
-                <h5 class="card-title"><%= user.name %></h5>
+                <h5 class="card-title"><%= link_to user.name, user_path(user) %></h5>
                 <p class="card-text"><%= link_to "YES", yes_path(user.id) %> /  <%= link_to "NO" , no_path(user.id) %></p>
                 </div>
         </div>
