@@ -5,7 +5,9 @@
     <div class="row px-2">
     <% current_user.interested.each do |match| %>
     <div class="custom_card">
+    <%= link_to user_path(match) do %>
     <%= render partial: "shared/avatar-resize", locals: {object: match,x:90,y:90}%>
+    <% end %>
     </div>
     <% end %>
     </div>
