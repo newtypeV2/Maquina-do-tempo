@@ -20,4 +20,5 @@ Rails.application.routes.draw do
   patch "homepage/edit", to: "users#update"
 
 
+
 end

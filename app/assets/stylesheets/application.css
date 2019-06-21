@@ -28,8 +28,15 @@
 
 .container{
      margin-top: 100px;
+     margin-bottom: 100px;
  }
 
  body{
     background-image: url("./web-assets/White-Berbury-Seamless-Pattern.jpg")
  }
+
+ .d-flex.justify-content-center.fixed-bottom.pb-2 {
+    font-size: xx-small;
+    font-weight: 100;
+    font-family: monospace;
+}
