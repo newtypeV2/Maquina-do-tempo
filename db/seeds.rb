@@ -10,63 +10,94 @@ User.destroy_all
 Match.destroy_all
 
 
-jon = User.create(name: "Jon",location: "Washington, D.C.",age: 72, gender: "male", password: "password", username: "jon")
-jon.avatar.attach(io: File.open("profilepics/jon.jpg"), filename: "jon.jpg", content_type: "image/jpg")
+john = User.create(name: "John",location: "Washington, D.C.",age: 72, gender: "male", password: "password", username: "john")
+john.avatar.attach(io: File.open("profilepics/john.png"), filename:"john.png", content_type: "image/png")
 
-daenerys = User.create(name: "Daenerys",location: "Washington, D.C.",age: 64, gender: "female", password: "password", username: "nerys")
-daenerys.avatar.attach(io: File.open("profilepics/daenerys.jpg"), filename: "daenerys.jpg", content_type: "image/jpg")
+anna = User.create(name: "Anna",location: "Washington, D.C.",age: 64, gender: "female", password: "password", username: "anna")
+anna.avatar.attach(io: File.open("profilepics/anna.png"), filename: "anna.png", content_type: "image/png")
 
-cersei = User.create(name: "Cersei",location: "Washington, D.C.",age: 70, gender: "female", password: "password", username: "cersei")
-cersei.avatar.attach(io: File.open("profilepics/cersei.jpg"), filename: "cersei.jpg", content_type: "image/jpg")
+juliete = User.create(name: "Juliete",location: "Washington, D.C.",age: 70, gender: "female", password: "password", username: "juliete")
+juliete.avatar.attach(io: File.open("profilepics/juliete.png"), filename: "juliete.png", content_type: "image/png")
 
-stahl = User.create(name: "Stahl",location: "Washington, D.C.",age: 60, gender: "male", password: "password", username: "stahl")
-stahl.avatar.attach(io: File.open("profilepics/stahl.jpg"), filename: "stahl.jpg", content_type: "image/jpg")
+david = User.create(name: "David",location: "Washington, D.C.",age: 60, gender: "male", password: "password", username: "david")
+david.avatar.attach(io: File.open("profilepics/david.png"), filename: "david.png", content_type: "image/png")
 
-khal = User.create(name: "Khal",location: "Washington, D.C.",age: 65, gender: "male", password: "password", username: "khal")
-khal.avatar.attach(io: File.open("profilepics/khal.jpg"), filename: "khal.jpg", content_type: "image/jpg")
+anthony = User.create(name: "Anthony",location: "Washington, D.C.",age: 65, gender: "male", password: "password", username: "anthony")
+anthony.avatar.attach(io: File.open("profilepics/anthony.png"), filename: "anthony.png", content_type: "image/png")
 
-shae = User.create(name: "Shae",location: "Washington, D.C.",age: 68, gender: "female", password: "password", username: "shae")
-shae.avatar.attach(io: File.open("profilepics/shae.jpg"), filename: "shae.jpg", content_type: "image/jpg")
+marie = User.create(name: "Marie",location: "Washington, D.C.",age: 68, gender: "female", password: "password", username: "marie")
+marie.avatar.attach(io: File.open("profilepics/marie.png"), filename: "marie.png", content_type: "image/png")
 
 x = 1
 11.times do
     user = User.create(name: Faker::Name.male_first_name ,location: "#{Faker::Address.city }, #{Faker::Address.state_abbr}" ,age:rand(60..70) , gender: "male", password: "password", username: ("user-m"+"#{x}"))
-    user.avatar.attach(io: File.open("profilepics/man#{x}.jpg"), filename: "man#{x}.jpg", content_type: "image/jpg")
+    user.avatar.attach(io: File.open("profilepics/man#{x}.png"), filename: "man#{x}.png", content_type: "image/png")
     x+=1
 end
 
 x = 1
 11.times do
     user = User.create(name: Faker::Name.female_first_name ,location: "#{Faker::Address.city }, #{Faker::Address.state_abbr}" ,age:rand(60..70) , gender: "female", password: "password", username: ("user-f"+"#{x}"))
-    user.avatar.attach(io: File.open("profilepics/woman#{x}.jpg"), filename: "woman#{x}.jpg", content_type: "image/jpg")
+    user.avatar.attach(io: File.open("profilepics/woman#{x}.png"), filename: "woman#{x}.png", content_type: "image/png")
     x+=1
 end
 
 
-Match.create(swiper_id: jon.id , swiped_id: shae.id, gave_chance: true)
-Match.create(swiper_id: jon.id, swiped_id: cersei.id, gave_chance: true)
-Match.create(swiper_id: jon.id, swiped_id: daenerys.id, gave_chance: true)
+Match.create(swiper_id: john.id , swiped_id: marie.id, gave_chance: true)
+Match.create(swiper_id: john.id, swiped_id: juliete.id, gave_chance: true)
+Match.create(swiper_id: john.id, swiped_id: anna.id, gave_chance: true)
+Match.create(swiper_id: john.id, swiped_id: david.id, gave_chance: false)
+Match.create(swiper_id: john.id, swiped_id: anthony.id, gave_chance: true)
 
 
-Match.create(swiper_id: daenerys.id, swiped_id: khal.id, gave_chance: true)
-Match.create(swiper_id: daenerys.id, swiped_id: stahl.id, gave_chance: false)
-Match.create(swiper_id: daenerys.id, swiped_id: jon.id, gave_chance: true)
+Match.create(swiper_id: david.id, swiped_id: john.id, gave_chance: true)
+Match.create(swiper_id: david.id, swiped_id: marie.id, gave_chance: false)
+Match.create(swiper_id: david.id, swiped_id: anna.id, gave_chance: true)
 
-Match.create(swiper_id: cersei.id, swiped_id: jon.id, gave_chance: false)
+Match.create(swiper_id: anthony.id , swiped_id: marie.id, gave_chance: true)
+Match.create(swiper_id: anthony.id, swiped_id: juliete.id, gave_chance: true)
+Match.create(swiper_id: anthony.id, swiped_id: anna.id, gave_chance: true)
+Match.create(swiper_id: anthony.id, swiped_id: david.id, gave_chance: false)
 
-Match.create(swiper_id: stahl.id, swiped_id: jon.id, gave_chance: true)
-Match.create(swiper_id: stahl.id, swiped_id: khal.id, gave_chance: true)
+Match.create(swiper_id: anna.id, swiped_id: david.id, gave_chance: true)
+Match.create(swiper_id: anna.id , swiped_id: anthony.id, gave_chance: true)
+Match.create(swiper_id: anna.id, swiped_id: juliete.id, gave_chance: true)
+Match.create(swiper_id: anna.id, swiped_id: marie.id, gave_chance: true)
 
-Match.create(swiper_id: khal.id, swiped_id: daenerys.id, gave_chance: true)
-Match.create(swiper_id: khal.id, swiped_id: cersei.id, gave_chance: false)
+Match.create(swiper_id: juliete.id, swiped_id: anna.id, gave_chance: true)
+Match.create(swiper_id: juliete.id, swiped_id: marie.id, gave_chance: true)
+Match.create(swiper_id: juliete.id, swiped_id: john.id, gave_chance: true)
 
-Match.create(swiper_id: shae.id, swiped_id: jon.id, gave_chance: true) #for match testing
-Match.create(swiper_id: shae.id, swiped_id: khal.id, gave_chance: false)
+Match.create(swiper_id: marie.id, swiped_id: john.id, gave_chance: true)
+Match.create(swiper_id: marie.id, swiped_id: david.id, gave_chance: true)
+Match.create(swiper_id: marie.id , swiped_id: anthony.id, gave_chance: true)
+Match.create(swiper_id: marie.id, swiped_id: juliete.id, gave_chance: true)
+Match.create(swiper_id: marie.id, swiped_id: anna.id, gave_chance: true)
 
 
-Message.create(sender_id: jon.id, receiver_id: shae.id, content: "How you doin?")
-Message.create(sender_id: shae.id, receiver_id: jon.id, content: "I'm doing fine. How was your watch last night?")
-Message.create(sender_id: jon.id, receiver_id: shae.id, content: "It was cool, we killed a lot of wight walkers. Other than that, it was normal")
-Message.create(sender_id: shae.id, receiver_id: jon.id, content: "Oh cool, when is the next time you're coming to Kings Landing? Maybe we can grabe some Starbucks")
-Message.create(sender_id: jon.id, receiver_id: shae.id, content: "Oh sure, we're planning a war against Cersei so we'll probably be there next week. See you then!")
-Message.create(sender_id: shae.id, receiver_id: jon.id, content: "Sounds great! See you then!")
+# Message.create(sender_id: john.id, receiver_id: anna.id, content: "How you doin?")
+# Message.create(sender_id: anna.id, receiver_id: john.id, content: "I'm doing fine. Do you like soccer?")
+# Message.create(sender_id: john.id, receiver_id: anna.id, content: "Not really")
+# Message.create(sender_id: anna.id, receiver_id: john.id, content: "cool")
+# Message.create(sender_id: john.id, receiver_id: anna.id, content: "are you still there?")
+
+Message.create(sender_id: anna.id, receiver_id: marie.id, content: "Hi")
+Message.create(sender_id: anna.id, receiver_id: marie.id, content: "I'm lookin for a travel buddy")
+Message.create(sender_id: marie.id, receiver_id: anna.id, content: "Hey, that's fun")
+Message.create(sender_id: anna.id, receiver_id: marie.id, content: "yes, I have a RV and stuff")
+Message.create(sender_id: marie.id, receiver_id: anna.id, content: "let's do it!!")
+
+Message.create(sender_id: anna.id, receiver_id: david.id, content: "Hi handsome")
+Message.create(sender_id: anna.id, receiver_id: david.id, content: "Do you have snapchat?")   
+
+Message.create(sender_id: anthony.id, receiver_id: anna.id, content: "Want to marry me?")
+Message.create(sender_id: anna.id, receiver_id: anthony.id, content: "...")
+
+Message.create(sender_id: david.id, receiver_id: anthony.id, content: "what's up?")
+Message.create(sender_id: david.id, receiver_id: john.id, content: "what's up?")
+Message.create(sender_id: david.id, receiver_id: juliete.id, content: "what's up?")
+Message.create(sender_id: david.id, receiver_id: marie.id, content: "what's up?")
+
+
+Message.create(sender_id: john.id, receiver_id: juliete.id, content: "How you doin?")
+Message.create(sender_id: john.id, receiver_id: marie.id, content: "How you doin?")
