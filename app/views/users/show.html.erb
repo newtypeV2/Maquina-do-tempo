@@ -1,7 +1,22 @@
+<div class="row d-flex justify-content-center">
+    <div class="col-lg-6 "> 
+        <div class="shadow-lg p-3 mb-5 bg-white rounded profile ">
+            <h1 class="display-2"><%= @user.name %>'s Profile</h1>
+            <%= render partial: "shared/avatar-resize", locals: {object: @user,x:250,y:250} %>
+            <p class="profile_info">Name: <%= @user.name %></p>
+            <p class="profile_info">Location: <%= @user.location %></p>
+            <p class="profile_info">Age: <%= @user.age %></p>
+            <p class="profile_info">Gender: <%= @user.gender.capitalize if @user.gender%></p>
 
-<h1 class="display-2"><%= @user.name %>'s Profile</h1>
-    <%= render partial: "shared/avatar-resize", locals: {object: @user,x:250,y:250} %>
-    <p>Name: <%= @user.name %></p>
-    <p>Location: <%= @user.location %></p>
-    <p>Age: <%= @user.age %></p>
-    <p>Gender: <%= @user.gender.capitalize if @user.gender%></p>
+            <p><% if @user.id != current_user.id && current_user.matches.include?(@user) %>
+            <%= link_to "Message",direct_message_path,method: :post, class:"btn btn-primary btn-lg active"%>
+
+            <% end %>
+            <% if @user.id != current_user.id && current_user.interested.include?(@user) %>
+            <%= link_to "MATCH !!",liked_path(@user), method: :post , class:"btn btn-success btn-lg active"%>
+            <% end %>
+            </p>
+        </div>
+        
+    </div>
+</div>

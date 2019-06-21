@@ -23,4 +23,7 @@ class MatchmakerController < ApplicationController
         Match.create(swiper_id: current_user.id, swiped_id: params[:id], gave_chance: false)
         redirect_to matchmaker_index_path
     end
+
+
+
 end

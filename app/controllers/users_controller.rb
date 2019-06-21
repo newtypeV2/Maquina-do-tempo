@@ -57,11 +57,19 @@ class UsersController < ApplicationController
     def new_message
         @user = current_user
         @message = Message.new
+        if params[:id]
+            @message.receiver_id = params[:id]
+        end
     end
 
     def send_message
        Message.create(message_params)
        redirect_to messages_path
+    end
+
+    def liked
+        Match.create(swiper_id: current_user.id, swiped_id: params[:id], gave_chance: true)
+        redirect_to homepage_path
     end
 
 
