@@ -1,0 +1,5 @@
+<% if object.avatar.attached? %>
+<%= image_tag object.avatar,height: x, width: y ,class: objectclass %>
+<% else %>
+<%= image_tag "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973461_960_720.png",height: x, width: y ,class: objectclass %>
+<% end %>

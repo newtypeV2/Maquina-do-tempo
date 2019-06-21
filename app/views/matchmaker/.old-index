@@ -1,0 +1,15 @@
+<div class="row">
+  <% if current_user.interested.any? %>
+  <div class="row-sm-2 border border-dark shadow p-3 mb-5 bg-light rounded mr-2">
+    <p>People Interested in you:</p>
+    <div class="row px-2">
+    <% current_user.interested.each do |match| %>
+    <div class="custom_card">
+    <%= link_to user_path(match) do %>
+    <%= render partial: "shared/avatar-resize", locals: {object: match,x:90,y:90}%>
+    <% end %>
+    </div>
+    <% end %>
+    </div>
+  </div>
+  <% end %>

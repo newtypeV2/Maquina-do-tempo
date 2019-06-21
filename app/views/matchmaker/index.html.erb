@@ -1,18 +1,21 @@
-<div class="d-flex justify-content-center">
-        <%= form_tag matchmaker_index_path, method: :get %>
-        <%= select_tag "filter", options_for_select([  "Male","Female","Other","All"  ]), :prompt => 'Select One' %>
-        <%= submit_tag "Filter" %>
-</div>
-<div class="row">
-<% @users.each do |user| %>
-        <div class="col-sm-4">
-        <div class="card shadow-lg bg-light rounded" style="width: 16rem;">
-                <%= render partial: "shared/avatar", locals:{object: user} %>
-                <div class="card-body">
-                <h5 class="card-title"><%= link_to user.name, user_path(user) %></h5>
-                <p class="card-text"><%= link_to "YES", yes_path(user.id) %> /  <%= link_to "NO" , no_path(user.id) %></p>
+<% if current_user.available_pool.any? %>
+<div id="carouselExampleFade justify-content-sm-center" class="carousel slide carousel-fade" data-ride="carousel">
+                <div class="carousel-inner justify-content-lg-center">
+                  <div class="carousel-item active">
+                    <%= render partial: "shared/avatar-resize-class", locals: {object: @user, x: 250, y:250, objectclass: "d-block w-100"} %>
+                        <div class="carousel-caption d-none d-md-block bg-info text-white-50 bg-dark">
+                                <h5 class="display-4"><%= @user.name %></h5>
+                                <p>Age: <%= @user.age %> - From: <%= @user.location %></p>
+                        </div>
+                  </div>
                 </div>
-        </div>
-        </div>
+                <a class="carousel-control-prev btn btn-secondary btn-outline-danger" href=<%= no_path(@user) %> role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next btn btn-secondary btn-outline-success" href=<%= yes_path(@user) %> role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
 <% end %>
-</div>
