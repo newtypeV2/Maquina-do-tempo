@@ -45,14 +45,14 @@ end
 
 Match.create(swiper_id: john.id , swiped_id: marie.id, gave_chance: true)
 Match.create(swiper_id: john.id, swiped_id: juliete.id, gave_chance: true)
-Match.create(swiper_id: john.id, swiped_id: anna.id, gave_chance: true)
-Match.create(swiper_id: john.id, swiped_id: david.id, gave_chance: false)
+Match.create(swiper_id: john.id, swiped_id: david.id, gave_chance: true)
 Match.create(swiper_id: john.id, swiped_id: anthony.id, gave_chance: true)
 
 
 Match.create(swiper_id: david.id, swiped_id: john.id, gave_chance: true)
 Match.create(swiper_id: david.id, swiped_id: marie.id, gave_chance: false)
 Match.create(swiper_id: david.id, swiped_id: anna.id, gave_chance: true)
+Match.create(swiper_id: david.id, swiped_id: juliete.id, gave_chance: true)
 
 Match.create(swiper_id: anthony.id , swiped_id: marie.id, gave_chance: true)
 Match.create(swiper_id: anthony.id, swiped_id: juliete.id, gave_chance: true)
@@ -63,10 +63,12 @@ Match.create(swiper_id: anna.id, swiped_id: david.id, gave_chance: true)
 Match.create(swiper_id: anna.id , swiped_id: anthony.id, gave_chance: true)
 Match.create(swiper_id: anna.id, swiped_id: juliete.id, gave_chance: true)
 Match.create(swiper_id: anna.id, swiped_id: marie.id, gave_chance: true)
+Match.create(swiper_id: anna.id, swiped_id: john.id, gave_chance: true)
 
 Match.create(swiper_id: juliete.id, swiped_id: anna.id, gave_chance: true)
 Match.create(swiper_id: juliete.id, swiped_id: marie.id, gave_chance: true)
 Match.create(swiper_id: juliete.id, swiped_id: john.id, gave_chance: true)
+Match.create(swiper_id: juliete.id, swiped_id: david.id, gave_chance: true)
 
 Match.create(swiper_id: marie.id, swiped_id: john.id, gave_chance: true)
 Match.create(swiper_id: marie.id, swiped_id: david.id, gave_chance: true)
